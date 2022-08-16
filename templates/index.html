@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Statify</title>
+<<<<<<< HEAD
     </head>
     <img src = https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png width="200" height="200">
     <br>
@@ -11,4 +12,26 @@
     {% for message in get_flashed_messages()%}
         <a href={{message}}> Log In </a>
     {% endfor %}
+=======
+        <style> 
+        img {
+            border-radius: 20px;
+            margin: 50px;
+        }
+            </style>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    </head>
+    <body>
+    <img src = https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png width="300" height="300">
+    <br>
+    <p1> Statify </p1>
+    <br>
+    <p2> Find out what you've been listening to...</p2>
+    <br>
+    {% for message in get_flashed_messages()%}
+        <a href={{message}}> <img src =https://i.ibb.co/jy2xJN6/spotify-login.png width = 500px height = 90px border-radius = 10px /> </a>
+    {% endfor %}
+    
+    </body>
+>>>>>>> origin/work-branch
 </html>
