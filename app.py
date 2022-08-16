@@ -314,7 +314,6 @@ def shortAndLongSongComparison():
 
 
 
-
 @app.route('/sign_out')
 def sign_out():
     try:
