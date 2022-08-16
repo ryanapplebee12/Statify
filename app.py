@@ -295,7 +295,7 @@ def shortAndLongSongComparison():
         print(song)
         flash(song[0] +" | " + song[1])
     flash('')
-    flash('And these are some of your previous favorites. . .')
+    flash('And these are some of your previous. . .')
     flash('')
     long_int = long_mod.symmetric_difference(intersection)
     for song in long_int:
