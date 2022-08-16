@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Statify</title>
+    </head>
+    <img src = https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png width="200" height="200">
+    <br>
+    <a> Statify </a>
+    <br>
+    {% for message in get_flashed_messages()%}
+        <a href={{message}}> Log In </a>
+    {% endfor %}
+</html>
