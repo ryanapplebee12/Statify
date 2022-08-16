@@ -80,6 +80,10 @@ def page4():
     TR = 'long_term'
     return render_template('page4.html')
 
+@app.route('/page5')
+def page5():
+    return render_template('page5.html')
+
 
 
 #short term ##########################################
@@ -185,6 +189,124 @@ def longTermGenres():
         flash(str(idx+1) + '. ' + str(genre))
     return render_template('longTerm.html')
 
+@app.route('/shortAndMediumSongComparison')
+def shortAndMediumSongComparison():
+    flash('These are the songs that you\'ve listened to the most in the past 6 months, and even last month. . .')
+    flash('')
+    global TR
+    TR = 'short_term'
+    short = findTopSongs()
+    short_mod = set()
+    for song in short:
+        short_mod.add((song[1], song[2]))
+    TR = 'medium_term'
+    medium = findTopSongs()
+    medium_mod = set()
+    for song in medium:
+
+        medium_mod.add((song[1], song[2]))
+    intersection = short_mod.intersection(medium_mod)
+    for song in intersection:
+        flash(song[0] +" | " + song[1])
+    flash('')
+    flash('These are some of the new favorites. . .')
+    flash('')
+    short_int = short_mod.symmetric_difference(intersection)
+    for song in short_int:
+        flash(song[0] +" | " + song[1])
+    flash('')
+    flash('And these are some of the songs have been played a lot in the past, but maybe not so much anymore. . .')
+    flash('')
+    medium_int = medium_mod.symmetric_difference(intersection)
+    for song in medium_int:
+        print(song)
+        flash(song[0] +" | " + song[1])
+
+
+    return render_template('songComparison.html')
+
+    
+@app.route('/mediumAndLongSongComparison')
+def mediumAndLongSongComparison():
+    flash('These are the songs that you\'ve replayed a lot since the beginning, and still did in the past 6 months . . .')
+    flash('')
+    global TR
+    TR = 'long_term'
+    long = findTopSongs()
+    long_mod = set()
+    for song in long:
+        long_mod.add((song[1], song[2]))
+    TR = 'medium_term'
+    medium = findTopSongs()
+    medium_mod = set()
+    for song in medium:
+
+        medium_mod.add((song[1], song[2]))
+    intersection = long_mod.intersection(medium_mod)
+    for song in intersection:
+        flash(song[0] +" | " + song[1])
+    flash('')
+    flash('These are some of the new songs you\'ve picked up since the last 6 months. . .')
+    flash('')
+    medium_int = medium_mod.symmetric_difference(intersection)
+    for song in medium_int:
+        print(song)
+        flash(song[0] +" | " + song[1])
+    flash('')
+    flash('And these are some of the songs you\'ve stopped listening to as often in the past 6 months. . .')
+    flash('')
+    long_int = long_mod.symmetric_difference(intersection)
+    for song in long_int:
+        print(song)
+        flash(song[0] +" | " + song[1])
+
+
+    return render_template('songComparison.html')
+
+
+@app.route('/shortAndLongSongComparison')
+def shortAndLongSongComparison():
+
+    flash('These are some of your top rated songs even considering songs you\'ve listened to from the start. . .')
+    flash('')
+    global TR
+    TR = 'short_term'
+    short = findTopSongs()
+    short_mod = set()
+    for song in short:
+        short_mod.add((song[1], song[2]))
+
+
+    TR = 'long_term'
+    long = findTopSongs()
+    long_mod = set()
+    for song in long:
+        long_mod.add((song[1], song[2]))
+
+    intersection = long_mod.intersection(short_mod)
+    for song in intersection:
+        flash(song[0] +" | " + song[1])
+    flash('')
+    flash('These are songs that you\'ve found recently and have really liked. . .')
+    flash('')
+
+    short_int = short_mod.symmetric_difference(intersection)
+    for song in short_int:
+        print(song)
+        flash(song[0] +" | " + song[1])
+    flash('')
+    flash('And these are some of your previous favorites. . .')
+    flash('')
+    long_int = long_mod.symmetric_difference(intersection)
+    for song in long_int:
+        print(song)
+        flash(song[0] +" | " + song[1])
+
+    
+
+
+    return render_template('songComparison.html')
+
 
 
 
@@ -242,7 +364,6 @@ def getToken():
 
 #finds top songs depending on the time range. returns thme in a list
 def findTopSongs():
-    print(TR)
 
     sp = getToken()
     results = sp.current_user_top_tracks(time_range=TR)
@@ -255,7 +376,7 @@ def findTopSongs():
     l = []
     #Print Tracks and Calculate Popularity
     for track in tracks:
-        l.append((i, track['artists'][0]['name'],track['name'], track['popularity']))
+        l.append((i, track['name'], track['artists'][0]['name'], track['popularity']))
         i+=1
 
 

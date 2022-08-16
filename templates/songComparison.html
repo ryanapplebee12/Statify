@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Statify</title>
+    </head>
+    <body>
+        <br>
+        {% for message in get_flashed_messages()%}
+            <a> {{message}} </a>
+            <br>
+        {% endfor %}
+        <br>
+        <form action="/page5">
+            <input type="submit" value="Back"/>
+        </form>
+
+    </body>
+</html>
