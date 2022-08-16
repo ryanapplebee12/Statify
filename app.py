@@ -92,10 +92,9 @@ def shortTermSongs():
     dev = findMood()
     for i in range(len(l)):
         line = l[i] + dev[i]
-        flash(str(line[0]) + '  \t' + str(line[1]))
-        #+ '\t\t' + str(line[2]) + '\t\t' + str(line[3]) + '\t' + str(line[4]) + '\t' + str(line[5]) + '\t' + str(line[6])
+        flash(str(line[0]) + " | " + str(line[1]) + " | " + str(line[2]) + " | " + str(line[3]) + " | " + str(line[4]) + " | " + str(line[5]) + " | " + str(line[6]))
     flash('')
-    flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)))
+    flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
     return render_template('shortTerm.html')
 
 @app.route('/shortTermArtists')
@@ -104,7 +103,9 @@ def shortTermArtists():
     flash('')
     l = findTopArtists()
     for artist in l:
-        flash(artist)
+        flash(str(artist[0]) + " | " + str(artist[1]) + " | " + str(artist[2]))
+    flash('')
+    flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
     return render_template('shortTerm.html')
 
 @app.route('/shortTermGenres')
@@ -124,9 +125,10 @@ def mediumTermSongs():
     l = findTopSongs()
     dev = findMood()
     for i in range(len(l)):
-        flash(l[i]+ dev[i])
+        line = l[i] + dev[i]
+        flash(str(line[0]) + " | " + str(line[1]) + " | " + str(line[2]) + " | " + str(line[3]) + " | " + str(line[4]) + " | " + str(line[5]) + " | " + str(line[6]))
     flash('')
-    flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)))
+    flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
     return render_template('mediumTerm.html')
 
 @app.route('/mediumTermArtists')
@@ -135,7 +137,9 @@ def mediumTermArtists():
     flash('')
     l = findTopArtists()
     for artist in l:
-        flash(artist)
+        flash(str(artist[0]) + " | " + str(artist[1]) + " | " + str(artist[2]))
+    flash('')
+    flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
     return render_template('mediumTerm.html')
 
 @app.route('/mediumTermGenres')
@@ -155,9 +159,10 @@ def longTermSongs():
     l = findTopSongs()
     dev = findMood()
     for i in range(len(l)):
-        flash(l[i]+ dev[i])
+        line = l[i] + dev[i]
+        flash(str(line[0]) + " | " + str(line[1]) + " | " + str(line[2]) + " | " + str(line[3]) + " | " + str(line[4]) + " | " + str(line[5]) + " | " + str(line[6]))
     flash('')
-    flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)))
+    flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
     return render_template('longTerm.html')
 
 @app.route('/longTermArtists')
@@ -166,7 +171,9 @@ def longTermArtists():
     flash('')
     l = findTopArtists()
     for artist in l:
-        flash(artist)
+        flash(str(artist[0]) + " | " + str(artist[1]) + " | " + str(artist[2]))
+    flash('')
+    flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
     return render_template('longTerm.html')
 
 @app.route('/longTermGenres')
