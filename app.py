@@ -8,6 +8,8 @@ import spotipy
 import uuid
 import json
 
+#new changes
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(64)
 app.config['SESSION_TYPE'] = 'filesystem'
