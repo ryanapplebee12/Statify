@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Statify</title>
+    </head>
+    <body>
+        
+        {% for message in get_flashed_messages()%}
+            <a> Hi, {{message}} <small><a href="/sign_out">[sign out]<a></small> </a>
+        {% endfor %}
+        <br>
+        <a>Let's evaluate your music taste. . .</a>
+        
+        <form action="/page2">
+            <input type="submit" value="Next"/>
+        </form>
+        
+    </body>
+</html>

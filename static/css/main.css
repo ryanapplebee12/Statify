@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'GothamMedium';
+    src: url(fonts/Gotham\ Medium.otf)
+}
+body {
+    background-color: slategray;
+    text-align: center;
+}
+
+p1 {
+    color:white;
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 5.5em;
+    margin: 100px;
+}
+
+p2 {
+    color:white;
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2em;
+    
+}
+
+a {
+    border-radius:50%;
+}
+a:hover {
+    cursor:pointer
+}
