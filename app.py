@@ -8,11 +8,7 @@ import spotipy
 import uuid
 import json
 
-<<<<<<< HEAD
-#new changes
 
-=======
->>>>>>> origin/work-branch
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(64)
 app.config['SESSION_TYPE'] = 'filesystem'
@@ -83,13 +79,11 @@ def page4():
     TR = 'long_term'
     return render_template('page4.html')
 
-<<<<<<< HEAD
+
 @app.route('/page5')
 def page5():
     return render_template('page5.html')
 
-=======
->>>>>>> origin/work-branch
 
 
 #short term ##########################################
@@ -102,16 +96,11 @@ def shortTermSongs():
     dev = findMood()
     for i in range(len(l)):
         line = l[i] + dev[i]
-<<<<<<< HEAD
-        flash(str(line[0]) + " | " + str(line[1]) + " | " + str(line[2]) + " | " + str(line[3]) + " | " + str(line[4]) + " | " + str(line[5]) + " | " + str(line[6]))
+
+    flash(str(line[0]) + " | " + str(line[1]) + " | " + str(line[2]) + " | " + str(line[3]) + " | " + str(line[4]) + " | " + str(line[5]) + " | " + str(line[6]))
     flash('')
     flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
-=======
-        flash(str(line[0]) + '  \t' + str(line[1]))
-        #+ '\t\t' + str(line[2]) + '\t\t' + str(line[3]) + '\t' + str(line[4]) + '\t' + str(line[5]) + '\t' + str(line[6])
-    flash('')
-    flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)))
->>>>>>> origin/work-branch
+
     return render_template('shortTerm.html')
 
 @app.route('/shortTermArtists')
@@ -120,13 +109,11 @@ def shortTermArtists():
     flash('')
     l = findTopArtists()
     for artist in l:
-<<<<<<< HEAD
+
         flash(str(artist[0]) + " | " + str(artist[1]) + " | " + str(artist[2]))
-    flash('')
-    flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
-=======
-        flash(artist)
->>>>>>> origin/work-branch
+        flash('')
+        flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
+
     return render_template('shortTerm.html')
 
 @app.route('/shortTermGenres')
@@ -146,16 +133,12 @@ def mediumTermSongs():
     l = findTopSongs()
     dev = findMood()
     for i in range(len(l)):
-<<<<<<< HEAD
+
         line = l[i] + dev[i]
         flash(str(line[0]) + " | " + str(line[1]) + " | " + str(line[2]) + " | " + str(line[3]) + " | " + str(line[4]) + " | " + str(line[5]) + " | " + str(line[6]))
-    flash('')
-    flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
-=======
-        flash(l[i]+ dev[i])
-    flash('')
-    flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)))
->>>>>>> origin/work-branch
+        flash('')
+        flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
+
     return render_template('mediumTerm.html')
 
 @app.route('/mediumTermArtists')
@@ -164,13 +147,11 @@ def mediumTermArtists():
     flash('')
     l = findTopArtists()
     for artist in l:
-<<<<<<< HEAD
+
         flash(str(artist[0]) + " | " + str(artist[1]) + " | " + str(artist[2]))
-    flash('')
-    flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
-=======
-        flash(artist)
->>>>>>> origin/work-branch
+        flash('')
+        flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
+
     return render_template('mediumTerm.html')
 
 @app.route('/mediumTermGenres')
@@ -190,16 +171,12 @@ def longTermSongs():
     l = findTopSongs()
     dev = findMood()
     for i in range(len(l)):
-<<<<<<< HEAD
+
         line = l[i] + dev[i]
         flash(str(line[0]) + " | " + str(line[1]) + " | " + str(line[2]) + " | " + str(line[3]) + " | " + str(line[4]) + " | " + str(line[5]) + " | " + str(line[6]))
-    flash('')
-    flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
-=======
-        flash(l[i]+ dev[i])
-    flash('')
-    flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)))
->>>>>>> origin/work-branch
+        flash('')
+        flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
+
     return render_template('longTerm.html')
 
 @app.route('/longTermArtists')
@@ -208,13 +185,10 @@ def longTermArtists():
     flash('')
     l = findTopArtists()
     for artist in l:
-<<<<<<< HEAD
         flash(str(artist[0]) + " | " + str(artist[1]) + " | " + str(artist[2]))
-    flash('')
-    flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
-=======
-        flash(artist)
->>>>>>> origin/work-branch
+        flash('')
+        flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
+
     return render_template('longTerm.html')
 
 @app.route('/longTermGenres')
@@ -226,7 +200,6 @@ def longTermGenres():
         flash(str(idx+1) + '. ' + str(genre))
     return render_template('longTerm.html')
 
-<<<<<<< HEAD
 @app.route('/shortAndMediumSongComparison')
 def shortAndMediumSongComparison():
     flash('These are the songs that you\'ve listened to the most in the past 6 months, and even last month. . .')
@@ -344,8 +317,7 @@ def shortAndLongSongComparison():
 
 
     return render_template('songComparison.html')
-=======
->>>>>>> origin/work-branch
+
 
 
 
@@ -403,10 +375,7 @@ def getToken():
 
 #finds top songs depending on the time range. returns thme in a list
 def findTopSongs():
-<<<<<<< HEAD
-=======
-    print(TR)
->>>>>>> origin/work-branch
+
 
     sp = getToken()
     results = sp.current_user_top_tracks(time_range=TR)
@@ -419,11 +388,9 @@ def findTopSongs():
     l = []
     #Print Tracks and Calculate Popularity
     for track in tracks:
-<<<<<<< HEAD
+
         l.append((i, track['name'], track['artists'][0]['name'], track['popularity']))
-=======
-        l.append((i, track['artists'][0]['name'],track['name'], track['popularity']))
->>>>>>> origin/work-branch
+
         i+=1
 
 
