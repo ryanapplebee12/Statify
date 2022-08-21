@@ -230,7 +230,7 @@ def shortAndMediumSongComparison():
     flash('')
     medium_int = medium_mod.symmetric_difference(intersection)
     for song in medium_int:
-        print(song)
+        #print(song)
         flash(song[0] +" | " + song[1])
 
 
@@ -261,14 +261,14 @@ def mediumAndLongSongComparison():
     flash('')
     medium_int = medium_mod.symmetric_difference(intersection)
     for song in medium_int:
-        print(song)
+        #print(song)
         flash(song[0] +" | " + song[1])
     flash('')
     flash('And these are some of the songs you\'ve stopped listening to as often in the past 6 months. . .')
     flash('')
     long_int = long_mod.symmetric_difference(intersection)
     for song in long_int:
-        print(song)
+        #print(song)
         flash(song[0] +" | " + song[1])
 
 
@@ -303,14 +303,14 @@ def shortAndLongSongComparison():
 
     short_int = short_mod.symmetric_difference(intersection)
     for song in short_int:
-        print(song)
+        #print(song)
         flash(song[0] +" | " + song[1])
     flash('')
     flash('And these are some of your previous. . .')
     flash('')
     long_int = long_mod.symmetric_difference(intersection)
     for song in long_int:
-        print(song)
+        #print(song)
         flash(song[0] +" | " + song[1])
 
     
