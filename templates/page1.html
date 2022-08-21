@@ -3,9 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>Statify</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/page1.css')}}">
     </head>
     <body>
         
+            
+        <br>
+        <p1> Statify</p1>
+        <br>
+        <br>
+     
         {% for message in get_flashed_messages()%}
             <a> Hi, {{message}} <small><a href="/sign_out">[sign out]<a></small> </a>
         {% endfor %}
@@ -15,6 +22,6 @@
         <form action="/page2">
             <input type="submit" value="Next"/>
         </form>
-        
+    
     </body>
 </html>

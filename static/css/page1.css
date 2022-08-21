@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'GothamMedium';
+    src: url(fonts/Gotham\ Medium.otf)
+}
+
+*{
+    padding: 0;
+    margin: 0;
+  }
+
+p1 {
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:4em;
+    text-align: center;
+    letter-spacing: -18px;
+    
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(230, 217, 190);
+   /* background: linear-gradient(
+    to bottom,
+   
+
+   /* rgb(218, 208, 168) 100%,
+    rgb(218, 205, 231) 30%,
+    rgb(255, 255, 255) 30%,
+    rgb(204, 246, 246) 100%
+  );  */
+  
+    letter-spacing: -1px;
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3.2em;
+    text-align: center;
+    color:rgb(206, 147, 147)
+}
+
+
+
+input[type=submit] {
+   
+    background-color: rgb(232, 227, 207);
+    color:rgb(209, 159, 159);
+    border: 1px solid rgb(72, 69, 69); 
+    width:342px;
+    height:57px;
+    border-radius: 20px;
+    
+    font-size: 1em;
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+    text-shadow: none;
+    }
+
+    input[type=submit]:hover {
+        
+        color:rgb(198, 154, 136);
+    text-shadow: none;
+    cursor: pointer;
+    }
+    
+
