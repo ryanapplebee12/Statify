@@ -90,7 +90,7 @@ def page5():
 #short term ##########################################
 @app.route('/shortTermSongs')
 def shortTermSongs():
-    
+    flash('These are your top songs. . .')
     flash('')
     l = findTopSongs()
     dev = findMood()
@@ -101,7 +101,7 @@ def shortTermSongs():
 
         flash(img)
         flash(line)
-    flash('')
+    flash('switch')
     flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
 
     return render_template('shortTerm.html')
@@ -113,8 +113,11 @@ def shortTermArtists():
     l = findTopArtists()
     for artist in l:
 
-        flash(str(artist[0]) + " | " + str(artist[1]) + " | " + str(artist[2]))
-    flash('')
+        img = artist[-1]['url']
+        flash(img)
+        flash(artist[:-1])
+
+    flash('switch')
     flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
 
     return render_template('shortTerm.html')
@@ -122,10 +125,10 @@ def shortTermArtists():
 @app.route('/shortTermGenres')
 def shortTermGenres():
     flash('These are your top music genres. . .')
-    flash('')
+    flash('')    
     l = gatherGenres()
     for idx, genre in enumerate(l):
-        flash(str(idx+1) + '. ' + str(genre))
+        flash((idx+1, genre))
     return render_template('shortTerm.html')
 
 #medium term ###########################################
@@ -138,13 +141,10 @@ def mediumTermSongs():
     for i in range(len(l)):
         line = l[i][:-1] + dev[i]
         img = l[i][-1]['url']
-
-
         flash(img)
         flash(line)
-    
-    
-    flash('')
+        
+    flash('switch')
     flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
 
     return render_template('mediumTerm.html')
@@ -156,8 +156,11 @@ def mediumTermArtists():
     l = findTopArtists()
     for artist in l:
 
-        flash(str(artist[0]) + " | " + str(artist[1]) + " | " + str(artist[2]))
-    flash('')
+        img = artist[-1]['url']
+        flash(img)
+        flash(artist[:-1])
+
+    flash('switch')
     flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
 
     return render_template('mediumTerm.html')
@@ -165,10 +168,10 @@ def mediumTermArtists():
 @app.route('/mediumTermGenres')
 def mediumTermGenres():
     flash('These are your top music genres. . .')
-    flash('')
+    flash('')    
     l = gatherGenres()
     for idx, genre in enumerate(l):
-        flash(str(idx+1) + '. ' + str(genre))
+        flash((idx+1, genre))
     return render_template('mediumTerm.html')
 
 #long term ##########################################
@@ -181,11 +184,10 @@ def longTermSongs():
     for i in range(len(l)):
         line = l[i][:-1] + dev[i]
         img = l[i][-1]['url']
-
-
         flash(img)
         flash(line)
-    flash('')
+        
+    flash('switch')
     flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
 
     return render_template('longTerm.html')
@@ -196,19 +198,22 @@ def longTermArtists():
     flash('')
     l = findTopArtists()
     for artist in l:
-        flash(str(artist[0]) + " | " + str(artist[1]) + " | " + str(artist[2]))
-    flash('')
-    flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
 
+        img = artist[-1]['url']
+        flash(img)
+        flash(artist[:-1])
+
+    flash('switch')
+    flash('Your average artist popularity is ' + str(round(findAvgArtistPop(l), 2)) + " out of 100")
     return render_template('longTerm.html')
 
 @app.route('/longTermGenres')
 def longTermGenres():
     flash('These are your top music genres. . .')
-    flash('')
+    flash('')    
     l = gatherGenres()
     for idx, genre in enumerate(l):
-        flash(str(idx+1) + '. ' + str(genre))
+        flash((idx+1, genre))
     return render_template('longTerm.html')
 
 @app.route('/shortAndMediumSongComparison')
@@ -220,29 +225,34 @@ def shortAndMediumSongComparison():
     short = findTopSongs()
     short_mod = set()
     for song in short:
-        short_mod.add((song[1], song[2]))
+        short_mod.add((song[1], song[2], song[-1]['url']))
     TR = 'medium_term'
     medium = findTopSongs()
     medium_mod = set()
     for song in medium:
 
-        medium_mod.add((song[1], song[2]))
+        medium_mod.add((song[1], song[2], song[-1]['url']))
     intersection = short_mod.intersection(medium_mod)
     for song in intersection:
-        flash(song[0] +" | " + song[1])
-    flash('')
+        img = song[-1]
+        flash(img)
+        flash(song[:2])
+    flash('switch')
     flash('These are some of the new favorites. . .')
     flash('')
     short_int = short_mod.symmetric_difference(intersection)
     for song in short_int:
-        flash(song[0] +" | " + song[1])
-    flash('')
+        img = song[-1]
+        flash(img)
+        flash(song[:2])
+    flash('switch')
     flash('And these are some of the songs have been played a lot in the past, but maybe not so much anymore. . .')
     flash('')
     medium_int = medium_mod.symmetric_difference(intersection)
     for song in medium_int:
-        #print(song)
-        flash(song[0] +" | " + song[1])
+        img = song[-1]
+        flash(img)
+        flash(song[:2])
 
 
     return render_template('songComparison.html')
@@ -257,30 +267,34 @@ def mediumAndLongSongComparison():
     long = findTopSongs()
     long_mod = set()
     for song in long:
-        long_mod.add((song[1], song[2]))
+        long_mod.add((song[1], song[2], song[-1]['url']))
     TR = 'medium_term'
     medium = findTopSongs()
     medium_mod = set()
     for song in medium:
 
-        medium_mod.add((song[1], song[2]))
+        medium_mod.add((song[1], song[2], song[-1]['url']))
     intersection = long_mod.intersection(medium_mod)
     for song in intersection:
-        flash(song[0] +" | " + song[1])
-    flash('')
+        img = song[-1]
+        flash(img)
+        flash(song[:2])
+    flash('switch')
     flash('These are some of the new songs you\'ve picked up since the last 6 months. . .')
     flash('')
     medium_int = medium_mod.symmetric_difference(intersection)
     for song in medium_int:
-        #print(song)
-        flash(song[0] +" | " + song[1])
-    flash('')
+        img = song[-1]
+        flash(img)
+        flash(song[:2])
+    flash('switch')
     flash('And these are some of the songs you\'ve stopped listening to as often in the past 6 months. . .')
     flash('')
     long_int = long_mod.symmetric_difference(intersection)
     for song in long_int:
-        #print(song)
-        flash(song[0] +" | " + song[1])
+        img = song[-1]
+        flash(img)
+        flash(song[:2])
 
 
     return render_template('songComparison.html')
@@ -296,33 +310,38 @@ def shortAndLongSongComparison():
     short = findTopSongs()
     short_mod = set()
     for song in short:
-        short_mod.add((song[1], song[2]))
+        short_mod.add((song[1], song[2], song[-1]['url']))
 
 
     TR = 'long_term'
     long = findTopSongs()
     long_mod = set()
     for song in long:
-        long_mod.add((song[1], song[2]))
+        long_mod.add((song[1], song[2], song[-1]['url']))
 
     intersection = long_mod.intersection(short_mod)
     for song in intersection:
-        flash(song[0] +" | " + song[1])
-    flash('')
+        img = song[-1]
+        flash(img)
+        flash(song[:2])
+        
+    flash('switch')
     flash('These are songs that you\'ve found recently and have really liked. . .')
     flash('')
 
     short_int = short_mod.symmetric_difference(intersection)
     for song in short_int:
-        #print(song)
-        flash(song[0] +" | " + song[1])
-    flash('')
+        img = song[-1]
+        flash(img)
+        flash(song[:2])
+    flash('switch')
     flash('And these are some of your previous. . .')
     flash('')
     long_int = long_mod.symmetric_difference(intersection)
     for song in long_int:
-        #print(song)
-        flash(song[0] +" | " + song[1])
+        img = song[-1]
+        flash(img)
+        flash(song[:2])
 
     
 
@@ -395,8 +414,6 @@ def findTopSongs():
 
 #finds top artists depending on the time range. returns them in a list
 def findTopArtists():
-
-
     sp = getToken()
     top_artists = sp.current_user_top_artists(time_range=TR)
     artists = top_artists['items']
@@ -408,8 +425,9 @@ def findTopArtists():
     j = 1
     l = []
     avg_artist_pop = 0
+    #print(json.dumps(artists, indent=4))
     for artist in artists:
-        l.append((j, artist['name'], artist['popularity']))
+        l.append((j, artist['name'], artist['popularity'], artist['images'][2]))
         j+=1
     return l
 
@@ -433,7 +451,6 @@ def findMood():
     dev = []
 
     mood_list = sp.audio_features(valences)
-    #print(mood_list)
     for idx, m in enumerate(mood_list):
         dev.append((round(m['danceability']*100, 2), round(m['energy']*100, 2), round(m['valence']*100, 2)))
     

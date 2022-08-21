@@ -5,10 +5,32 @@
         <title>Statify</title>
     </head>
     <body>
-        <br>
+        {% set ns = namespace(iterPrint=false) %} 
         {% for message in get_flashed_messages()%}
-            <a> {{message}} </a>
-            <br>
+            {% if ns.iterPrint %}
+                {% if message == 'switch' %}
+                    {% if ns.iterPrint %}
+                        {% set ns.iterPrint = False %}
+                    {% else %}
+                        {% set ns.iterPrint = True %}
+                    {% endif %}
+                {% elif 'i.scdn.co' in message %}
+                    
+                    <img src = {{message}} width="50" height="50">
+
+                {% else %}
+                    {% set l = message %}
+                    {% for part in l %}
+                        <a> {{part}}  </a>
+                    {% endfor %}
+                    
+                {% endif %}
+            {% else %}
+                {% set ns.iterPrint = True %}
+                <a\> {{message}} </a>
+                
+            {% endif %}
+        <br>
         {% endfor %}
         <br>
         <form action="/page5">
