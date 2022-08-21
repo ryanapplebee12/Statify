@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Statify</title>
+    </head>
+    <body>
+        {% for message in get_flashed_messages()%}
+            <a> {{message}} </a>
+            <br>
+        {% endfor %}
+        
+        
+    </body>
+</html>

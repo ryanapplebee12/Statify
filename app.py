@@ -1,6 +1,7 @@
 
 from ast import Global
-from asyncio import gather
+from asyncio import gather, to_thread
+from functools import total_ordering
 import os
 from flask import Flask, session, request, redirect, flash, render_template
 from flask_session import Session
@@ -343,10 +344,90 @@ def shortAndLongSongComparison():
         flash(img)
         flash(song[:2])
 
-    
-
-
     return render_template('songComparison.html')
+
+@app.route('/share')
+def share():
+    global TR
+    TR = 'short_term'
+    short_song = findTopSongs()
+    short_artist = findTopArtists()
+    short_dev = findMood()
+    short_top_song = short_song[0]
+    short_top_artist = short_artist[0]
+    short_song_pop = findAvgSongPop(short_song)
+    short_artist_pop = findAvgArtistPop(short_artist)
+    d_len = len(short_dev)
+    tot_d_s = 0
+    tot_e_s = 0
+    tot_v_s = 0
+    for i in range(len(short_dev)):
+        tot_d_s += short_dev[i][0]
+        tot_e_s += short_dev[i][1]
+        tot_v_s += short_dev[i][2]
+    tot_d_s //= d_len
+    tot_e_s //= d_len
+    tot_v_s //= d_len
+
+
+    TR = 'medium_term'
+    medium_song = findTopSongs()
+    medium_artist = findTopArtists()
+    medium_dev = findMood()
+    medium_top_song = medium_song[0]
+    medium_top_artist = medium_artist[0]
+    medium_song_pop = findAvgSongPop(medium_song)
+    medium_artist_pop = findAvgArtistPop(medium_artist)
+    d_len = len(medium_dev)
+    tot_d_m = 0
+    tot_e_m = 0
+    tot_v_m = 0
+    for i in range(len(medium_dev)):
+        tot_d_m += medium_dev[i][0]
+        tot_e_m += medium_dev[i][1]
+        tot_v_m += medium_dev[i][2]
+    tot_d_m //= d_len
+    tot_e_m //= d_len
+    tot_v_m //= d_len
+
+
+    TR = 'long_term'
+    long_song = findTopSongs()
+    long_dev = findMood()
+    long_artist = findTopArtists()
+    long_top_song = long_song[0]
+    long_top_artist = long_artist[0]
+    long_song_pop = findAvgSongPop(long_song)
+    long_artist_pop = findAvgArtistPop(long_artist)
+    d_len = len(long_dev)
+    tot_d_l = 0
+    tot_e_l= 0
+    tot_v_l = 0
+    for i in range(len(long_dev)):
+        tot_d_l += long_dev[i][0]
+        tot_e_l += long_dev[i][1]
+        tot_v_l += long_dev[i][2]
+    tot_d_l //= d_len
+    tot_e_l //= d_len
+    tot_v_l //= d_len
+
+    flash('Short term:')
+    flash(short_top_song)
+    flash(short_top_artist)
+
+    flash('Medium term:')
+    flash(medium_top_song)
+    flash(medium_top_artist)
+
+    flash('Long Term:')
+    flash(long_top_song)
+    flash(long_top_artist)
+
+
+    
+    return render_template('share.html')
+
+
 
 
 
