@@ -11,8 +11,16 @@
         </a>
         <br>
         {% for message in get_flashed_messages()%}
-            <a> {{message}} </a>
-            <br>
+            {% if 'i.scdn.co' in message %}
+                
+                <img src = {{message}} width="50" height="50">
+
+            {% else %}
+                {% set l = message %}
+                <a> {{l[0]}} {{l[1]}} {{l[2]}} {{l[3]}} {{l[4]}} {{l[5]}} {{l[6]}}</a>
+                <!-- <a> {{message}} </a> -->
+            {% endif %}
+        <br>
         {% endfor %}
         <form action="/page2">
             <input type="submit" value="Back"/>
@@ -20,3 +28,5 @@
 
     </body>
 </html>
+
+<!-- <img src = https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png width="300" height="300"> -->

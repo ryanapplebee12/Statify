@@ -7,6 +7,7 @@ from flask_session import Session
 import spotipy
 import uuid
 import json
+import ast
 
 
 app = Flask(__name__)
@@ -90,14 +91,16 @@ def page5():
 @app.route('/shortTermSongs')
 def shortTermSongs():
     
-    flash('These are your top songs. . .')
     flash('')
     l = findTopSongs()
     dev = findMood()
     for i in range(len(l)):
-        line = l[i] + dev[i]
+        line = l[i][:-1] + dev[i]
+        img = l[i][-1]['url']
 
-        flash(str(line[0]) + " | " + str(line[1]) + " | " + str(line[2]) + " | " + str(line[3]) + " | " + str(line[4]) + " | " + str(line[5]) + " | " + str(line[6]))
+
+        flash(img)
+        flash(line)
     flash('')
     flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
 
@@ -133,9 +136,14 @@ def mediumTermSongs():
     l = findTopSongs()
     dev = findMood()
     for i in range(len(l)):
+        line = l[i][:-1] + dev[i]
+        img = l[i][-1]['url']
 
-        line = l[i] + dev[i]
-        flash(str(line[0]) + " | " + str(line[1]) + " | " + str(line[2]) + " | " + str(line[3]) + " | " + str(line[4]) + " | " + str(line[5]) + " | " + str(line[6]))
+
+        flash(img)
+        flash(line)
+    
+    
     flash('')
     flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
 
@@ -171,9 +179,12 @@ def longTermSongs():
     l = findTopSongs()
     dev = findMood()
     for i in range(len(l)):
+        line = l[i][:-1] + dev[i]
+        img = l[i][-1]['url']
 
-        line = l[i] + dev[i]
-        flash(str(line[0]) + " | " + str(line[1]) + " | " + str(line[2]) + " | " + str(line[3]) + " | " + str(line[4]) + " | " + str(line[5]) + " | " + str(line[6]))
+
+        flash(img)
+        flash(line)
     flash('')
     flash('Your average song popularity is ' + str(round(findAvgSongPop(l), 2)) + " out of 100")
 
@@ -340,25 +351,7 @@ def sign_out():
 
 
 
-# @app.route('/playlists')
-# def playlists():
-#     spotify = getToken()
-#     return [i['name'] for i in spotify.current_user_playlists()['items']]
 
-
-# @app.route('/currently_playing')
-# def currently_playing():
-#     spotify = getToken()
-#     track = spotify.current_user_playing_track()
-#     if not track is None:
-#         return track['item']['name']
-#     return "No track currently playing."
-
-
-# @app.route('/current_user')
-# def current_user():
-#     spotify = getToken()
-#     return spotify.current_user()
 
 def getToken():
     cache_handler = spotipy.cache_handler.CacheFileHandler(cache_path=session_cache_path())
@@ -379,6 +372,8 @@ def findTopSongs():
 
     sp = getToken()
     results = sp.current_user_top_tracks(time_range=TR)
+    
+    #print(json.dumps(results, indent=4))
     tracks = results['items']
 
     while results['next']:
@@ -386,10 +381,12 @@ def findTopSongs():
         tracks.extend(results['items'])
     i = 1
     l = []
-    #Print Tracks and Calculate Popularity
-    for track in tracks:
 
-        l.append((i, track['name'], track['artists'][0]['name'], track['popularity']))
+    
+    #Print Tracks and Calculate Popularity
+    
+    for track in tracks:
+        l.append((i, track['name'], track['artists'][0]['name'], track['popularity'], track['album']['images'][2]))
 
         i+=1
 
