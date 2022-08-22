@@ -2,13 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Statify</title>
+        <title>SpotifyU</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/mediumTerm.css')}}">
     </head>
     <body>
         
-        <a>
+        <p1>
             In the last 6 months. . .
-        </a>
+        </p1>
         <br>
         {% set ns = namespace(iterPrint=false) %} 
         {% for message in get_flashed_messages()%}

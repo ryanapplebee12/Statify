@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'GothamMedium';
+    src: url(fonts/Gotham\ Medium.otf)
+}
+
+p1 {
+    color:orange;
+    font-size:3em;
+    letter-spacing:-3px;
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background-color: purple;
+    color:orange;
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:1.3em;
+    letter-spacing: -1px;
+}

@@ -2,14 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Statify</title>
+        <title>SpotifyU</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/page2.css')}}">
     </head>
     <body>
         
-        <a>
+        <p1>
             Let's take a look at your recent music taste. . .
-        </a>
-        
+        </p1>
+        <br>
         <form action="/shortTermSongs">
             <input type="submit" value="Songs"/>
         </form>

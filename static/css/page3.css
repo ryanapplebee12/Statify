@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'GothamMedium';
+    src: url(fonts/Gotham\ Medium.otf)
+}
+
+*{
+    padding: 0;
+    margin: 0;
+  }
+
+p1 {
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:3.5em;
+    letter-spacing: -3px;
+    color: rgb(226, 42, 76);
+    text-align: center;
+}
+
+p2 {
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:3.5em;
+    letter-spacing: -3px;
+    color: rgb(226, 42, 76);
+    text-align: center;
+}
+
+p3 {
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:3.5em;
+    letter-spacing: -3px;
+    color: rgb(226, 42, 76);
+    text-align: center;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    
+    background-color: rgb(239, 206, 233);
+    /*background:linear-gradient(150deg, purple 0%, rgb(192, 46, 90));*/
+}
+
+input[type=submit] {
+   
+    background-color: rgb(250, 219, 244);
+    color: rgb(226, 42, 76);
+    border: 2px solid rgb(226, 42, 76);
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    margin:5px;
+    font-size: 1.2em;
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+    text-shadow: none;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: rgb(222, 160, 209);
+}
+

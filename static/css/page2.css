@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'GothamMedium';
+    src: url(fonts/Gotham\ Medium.otf)
+}
+
+*{
+    padding: 0;
+    margin: 0;
+  }
+
+p1 {
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:3.5em;
+    letter-spacing: -3px;
+    color: orange;
+    text-align: center;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    
+    background-color: purple;
+    /*background:linear-gradient(150deg, purple 0%, rgb(192, 46, 90));*/
+}
+
+input[type=submit] {
+   
+    background-color: rgb(173, 21, 173);
+    color:orange;
+    border: 2px solid orange; 
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    margin:5px;
+    font-size: 1.2em;
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+    text-shadow: none;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: rgb(143, 20, 143);
+}
