@@ -16,33 +16,26 @@ p1 {
     
 }
 
+
+
 body {
     width: 100%;
     min-height: 100vh;
-    background-color: rgb(230, 217, 190);
-   /* background: linear-gradient(
-    to bottom,
-   
-
-   /* rgb(218, 208, 168) 100%,
-    rgb(218, 205, 231) 30%,
-    rgb(255, 255, 255) 30%,
-    rgb(204, 246, 246) 100%
-  );  */
+    background-color: rgb(106, 66, 106);
   
     letter-spacing: -5px;
     font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 3.2em;
     text-align: center;
-    color:rgb(206, 147, 147)
+    color:rgb(248, 199, 153)
 }
 
 
 
 input[type=submit] {
    
-    background-color: rgb(232, 227, 207);
-    color:rgb(209, 159, 159);
+    background-color: rgb(107, 85, 107);
+    color:rgb(247, 219, 193);
     border: 1px solid rgb(72, 69, 69); 
     width:342px;
     height:57px;
@@ -60,5 +53,3 @@ input[type=submit] {
     text-shadow: none;
     cursor: pointer;
     }
-    
-

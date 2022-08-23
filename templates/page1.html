@@ -9,9 +9,9 @@
         
             
         <br>
-        <p1> Statify</p1>
+        <p1> Statify </p1>
         <br>
-        <br>
+        
      
         {% for message in get_flashed_messages()%}
             <a> Hi, {{message}} <small><a href="/sign_out">[sign out]<a></small> </a>
@@ -22,6 +22,6 @@
         <form action="/page2">
             <input type="submit" value="Next"/>
         </form>
-    
+        
     </body>
 </html>

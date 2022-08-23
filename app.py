@@ -414,6 +414,9 @@ def share():
     flash('Short term:')
     flash(short_top_song)
     flash(short_top_artist)
+    flash(tot_d_s)
+    flash(tot_e_s)
+    flash(tot_v_s)
 
     flash('Medium term:')
     flash(medium_top_song)
@@ -486,7 +489,10 @@ def findTopSongs():
     #Print Tracks and Calculate Popularity
     
     for track in tracks:
-        l.append((i, track['name'], track['artists'][0]['name'], track['popularity'], track['album']['images'][2]))
+        #(data[:18] + '..') if len(data) > 20 else data
+        #(track['name'][:18] + '..') if len(track['name']) > 20 else track['name']
+        #(track['artists'][0]['name'][:18] + '..') if len(track['artists'][0]['name']) > 20 else track['artists'][0]['name']
+        l.append((i, (track['name'][:23] + '..') if len(track['name']) > 25 else track['name'], (track['artists'][0]['name'][:23] + '..') if len(track['artists'][0]['name']) > 25 else track['artists'][0]['name'], track['popularity'], track['album']['images'][1]))
 
         i+=1
 
@@ -506,9 +512,10 @@ def findTopArtists():
     j = 1
     l = []
     avg_artist_pop = 0
-    #print(json.dumps(artists, indent=4))
+    
     for artist in artists:
-        l.append((j, artist['name'], artist['popularity'], artist['images'][2]))
+        
+        l.append((j, artist['name'], artist['popularity'], artist['images'][1]))
         j+=1
     return l
 

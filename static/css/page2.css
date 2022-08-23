@@ -19,7 +19,7 @@ p1 {
 body {
     width: 100%;
     min-height: 100vh;
-    background-color: rgb(230, 217, 190);
+    background-color: rgb(248, 183, 134);
    /* background: linear-gradient(
     to bottom,
    
@@ -34,15 +34,15 @@ body {
     font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 3.2em;
     text-align: center;
-    color:rgb(206, 147, 147)
+    color:rgb(159, 121, 185)
 }
 
 
 
 input[type=submit] {
    
-    background-color: rgb(232, 227, 207);
-    color:rgb(209, 159, 159);
+    background-color: rgb(248, 214, 188);
+    color:rgb(177, 156, 190);
     border: 1px solid rgb(72, 69, 69); 
     width:342px;
     height:57px;
@@ -61,4 +61,3 @@ input[type=submit] {
     cursor: pointer;
     }
     
-
