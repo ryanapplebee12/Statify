@@ -2,22 +2,18 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Statify</title>
-        <link rel="stylesheet" href = "{{url_for('static', filename = 'css/page2.css')}}">
-
+        <title>SpotifyU</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/page2.css')}}">
     </head>
     <body>
         <br>
         <p1> Statify </p1>
         <br>
         <br>
-        <a>
+        <p1>
             Let's take a look at your recent music taste. . .
-        </a>
+        </p1>
         <br>
-
-        
-        
         <form action="/shortTermSongs">
             <input type="submit" value="Songs"/>
         </form>

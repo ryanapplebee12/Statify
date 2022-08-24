@@ -12,51 +12,34 @@ p1 {
     font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size:3.5em;
     letter-spacing: -3px;
-    color: rgb(226, 42, 76);
+    color: rgb(255, 255, 255);
     text-align: center;
 }
 
-p2 {
-    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size:3.5em;
-    letter-spacing: -3px;
-    color: rgb(226, 42, 76);
-    text-align: center;
-}
-
-p3 {
-    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size:3.5em;
-    letter-spacing: -3px;
-    color: rgb(226, 42, 76);
-    text-align: center;
-}
 
 body {
     width: 100%;
     min-height: 100vh;
-    
-    background-color: rgb(239, 206, 233);
+    color: rgb(255, 255, 255);
+    background-color: rgb(9, 112, 83);
     /*background:linear-gradient(150deg, purple 0%, rgb(192, 46, 90));*/
 }
 
 input[type=submit] {
    
-    background-color: rgb(250, 219, 244);
-    color: rgb(226, 42, 76);
-    border: 2px solid rgb(226, 42, 76);
-    width: 200px;
-    height: 40px;
+    background-color: rgb(17, 137, 103);
+    border: 2px solid rgb(255, 255, 255);
+    width: 275px;
+    height: 55px;
     border-radius: 20px;
     margin:5px;
     font-size: 1.2em;
     font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   
+    color: rgb(255, 255, 255);
     text-shadow: none;
 }
 
 input[type=submit]:hover {
     cursor: pointer;
-    background-color: rgb(222, 160, 209);
+    background-color: rgb(6, 93, 68);
 }
-

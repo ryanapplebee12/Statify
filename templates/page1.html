@@ -2,16 +2,16 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Statify</title>
+        <title>SpotifyU</title>
         <link rel="stylesheet" href="{{url_for('static', filename='css/page1.css')}}">
     </head>
     <body>
         
             
         <br>
-        <p1> Statify </p1>
+        <p1> SpotifyU</p1>
         <br>
-        
+        <br>
      
         {% for message in get_flashed_messages()%}
             <a> Hi, {{message}} <small><a href="/sign_out">[sign out]<a></small> </a>

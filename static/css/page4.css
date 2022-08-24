@@ -10,46 +10,44 @@
 
 p1 {
     font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size:4em;
+    font-size:3.5em;
+    letter-spacing: -3px;
+    color: rgb(0, 251, 255);
     text-align: center;
-    letter-spacing: -18px;
-    
 }
 
+p2 {
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:3.5em;
+    letter-spacing: -3px;
+    color: rgb(0, 251, 255);
+    text-align: center;
+}
 
 
 body {
     width: 100%;
     min-height: 100vh;
-    background-color: rgb(106, 66, 106);
-  
-    letter-spacing: -5px;
-    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 3.2em;
-    text-align: center;
-    color:rgb(248, 199, 153)
+    color: rgb(0, 251, 255);
+    background-color: rgb(59, 15, 215);
+    /*background:linear-gradient(150deg, purple 0%, rgb(192, 46, 90));*/
 }
-
-
 
 input[type=submit] {
    
-    background-color: rgb(107, 85, 107);
-    color:rgb(247, 219, 193);
-    border: 1px solid rgb(72, 69, 69); 
-    width:342px;
-    height:57px;
+    background-color: rgb(72, 30, 225);
+    border: 2px solid rgb(0, 251, 255);
+    width: 200px;
+    height: 40px;
     border-radius: 20px;
-    letter-spacing: -5px;
-    font-size: 1em;
+    margin:5px;
+    font-size: 1.2em;
     font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   
+    color: rgb(0, 208, 255);
     text-shadow: none;
-    }
+}
 
-    input[type=submit]:hover {
-        
-        color:rgb(198, 154, 136);
-    text-shadow: none;
+input[type=submit]:hover {
     cursor: pointer;
-    }
+    background-color: rgb(52, 16, 186);
+}
