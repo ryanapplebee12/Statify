@@ -6,7 +6,20 @@
 p1 {
     color:orange;
     font-size:3em;
-    letter-spacing:-3px;
+    letter-spacing:-4px;
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+p2 {
+    color:orange;
+    font-size:2em;
+    letter-spacing:-2.5px;
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+p3 {
+    color:orange;
+    font-size:1em;
+    letter-spacing:-0.5px;
     font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -14,6 +27,26 @@ body {
     background-color: purple;
     color:orange;
     font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size:1.3em;
+    font-size:1.75em;
+    
     letter-spacing: -1px;
 }
+input[type=submit] {
+   
+    background-color: rgb(173, 21, 173);
+    color:orange;
+    border: 2px solid orange; 
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    margin:5px;
+    font-size: 1.2em;
+    font-family: 'GothamMedium','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: black;
+
+}
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: rgb(143, 20, 143);
+}
+

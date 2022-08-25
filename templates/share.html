@@ -2,12 +2,53 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Statify</title>
+        <title>SpotifyU</title>
+        <style>
+            img {
+                float: left;
+                height: auto;
+                border-radius: 10px;
+                margin-right: 10px;
+            }
+        </style>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/share.css')}}">
     </head>
     <body>
         {% for message in get_flashed_messages()%}
-            <a> {{message}} </a>
-            <br>
+            {% if message == '' %}
+                <br>
+            {% elif message[0] == 'mid' %}
+                <p>
+                    {{message[1]}}
+                </p>
+                <br>
+                <br>
+            {% elif 'i.scdn.co' in message[1] %}
+               
+                <br>
+                <div>
+                    <img src = {{message[1]}} width = 160 height = 160>
+                    <p1> {{message[0]}} </p1>
+                    
+                </div>
+                
+
+            {%  elif 'i.scdn.co' in message[2] %}
+                <div>
+                    <img src = {{message[2]}} width = 160 height = 160>
+                    <p1> {{message[0]}} <br> By {{message[1]}}</p1>
+                    <br>
+                </div>
+                <br>
+            {% else %}
+                <a>
+                    {{message}}
+                </a>
+                <br>
+                
+
+            {% endif %}
+            
         {% endfor %}
         
         

@@ -91,8 +91,10 @@ def page5():
 #short term ##########################################
 @app.route('/shortTermSongs')
 def shortTermSongs():
-    flash('These are your top songs. . .')
+    flash('these are your top songs. . .')
     flash('')
+    flash('switch')
+    flash('All metrics are measured from 1-100, with 1 being the lowest and 100 being the highest')
     l = findTopSongs()
     dev = findMood()
     for i in range(len(l)):
@@ -111,6 +113,8 @@ def shortTermSongs():
 def shortTermArtists():
     flash('These are your top artists. . .')
     flash('')
+    flash('switch')
+    flash('All metrics are measured from 1-100, with 1 being the lowest and 100 being the highest')
     l = findTopArtists()
     for artist in l:
 
@@ -126,7 +130,8 @@ def shortTermArtists():
 @app.route('/shortTermGenres')
 def shortTermGenres():
     flash('These are your top music genres. . .')
-    flash('')    
+    flash('')   
+     
     l = gatherGenres()
     for idx, genre in enumerate(l):
         flash((idx+1, genre))
@@ -137,6 +142,8 @@ def shortTermGenres():
 def mediumTermSongs():
     flash('These are your top songs. . .')
     flash('')
+    flash('switch')
+    flash('All metrics are measured from 1-100, with 1 being the lowest and 100 being the highest')
     l = findTopSongs()
     dev = findMood()
     for i in range(len(l)):
@@ -154,6 +161,8 @@ def mediumTermSongs():
 def mediumTermArtists():
     flash('These are your top artists. . .')
     flash('')
+    flash('switch')
+    flash('All metrics are measured from 1-100, with 1 being the lowest and 100 being the highest')
     l = findTopArtists()
     for artist in l:
 
@@ -169,7 +178,8 @@ def mediumTermArtists():
 @app.route('/mediumTermGenres')
 def mediumTermGenres():
     flash('These are your top music genres. . .')
-    flash('')    
+    flash('')   
+     
     l = gatherGenres()
     for idx, genre in enumerate(l):
         flash((idx+1, genre))
@@ -180,6 +190,8 @@ def mediumTermGenres():
 def longTermSongs():
     flash('These are your top songs. . .')
     flash('')
+    flash('switch')
+    flash('All metrics are measured from 1-100, with 1 being the lowest and 100 being the highest')
     l = findTopSongs()
     dev = findMood()
     for i in range(len(l)):
@@ -197,6 +209,8 @@ def longTermSongs():
 def longTermArtists():
     flash('These are your top artists. . .')
     flash('')
+    flash('switch')
+    flash('All metrics are measured from 1-100, with 1 being the lowest and 100 being the highest')
     l = findTopArtists()
     for artist in l:
 
@@ -365,9 +379,9 @@ def share():
         tot_d_s += short_dev[i][0]
         tot_e_s += short_dev[i][1]
         tot_v_s += short_dev[i][2]
-    tot_d_s //= d_len
-    tot_e_s //= d_len
-    tot_v_s //= d_len
+    tot_d_s /= d_len
+    tot_e_s /= d_len
+    tot_v_s /= d_len
 
 
     TR = 'medium_term'
@@ -411,20 +425,68 @@ def share():
     tot_e_l //= d_len
     tot_v_l //= d_len
 
-    flash('Short term:')
-    flash(short_top_song)
-    flash(short_top_artist)
-    flash(tot_d_s)
-    flash(tot_e_s)
-    flash(tot_v_s)
+    #flash('Your top song last month. . .')
+    flash(('mid', 'Your top song this month. . .'))
+    flash((short_top_song[1], short_top_song[2], short_top_song[-1]['url']))
 
-    flash('Medium term:')
-    flash(medium_top_song)
-    flash(medium_top_artist)
+    flash(('mid', 'Your 1 month average characteristics. . .'))
+    flash('Popularity: ' + str(round(short_song_pop, 2)))
+    flash('Dancability: ' + str(round(tot_d_s, 2)))
+    flash('Energy: ' + str(round(tot_e_s, 2)))
+    flash('Valence: ' + str(round(tot_v_s, 2)))
+    flash('')
+    flash(('mid', 'Your top artist this month. . .'))
+    flash((short_top_artist[1], short_top_artist[-1]['url']))
+    flash(('mid', 'Average artist popularity: ' + str(round(short_artist_pop, 2))))
 
-    flash('Long Term:')
-    flash(long_top_song)
-    flash(long_top_artist)
+    flash('')
+    flash('')
+    flash('')
+    flash('')
+    flash('')
+    flash('')
+
+    flash(('mid', 'Your top song in the last 6 months. . .'))
+    flash((medium_top_song[1], medium_top_song[2], medium_top_song[-1]['url']))
+
+    flash(('mid', 'Your 6 month average characteristics. . .'))
+    flash('Popularity: ' + str(round(medium_song_pop, 2)))
+    flash('Dancability: ' + str(round(tot_d_m, 2)))
+    flash('Energy: ' + str(round(tot_e_m, 2)))
+    flash('Valence: ' + str(round(tot_v_m, 2)))
+    flash('')
+    flash(('mid', 'Your top artist in the last 6 months. . .'))
+    flash((medium_top_artist[1], medium_top_artist[-1]['url']))
+    flash(('mid', 'Average artist popularity: ' + str(round(medium_artist_pop, 2))))
+
+    flash('')
+    flash('')
+    flash('')
+    flash('')
+    flash('')
+    flash('')
+
+    flash(('mid', 'Your all time top song. . .'))
+    flash((long_top_song[1], long_top_song[2], long_top_song[-1]['url']))
+
+    flash(('mid', 'Your all time characteristic averages. . .'))
+    flash('Popularity: ' + str(round(long_song_pop, 2)))
+    flash('Dancability: ' + str(round(tot_d_l, 2)))
+    flash('Energy: ' + str(round(tot_e_l, 2)))
+    flash('Valence: ' + str(round(tot_v_l, 2)))
+    flash('')
+    flash(('mid', 'Your all time top artist. . .'))
+    flash((long_top_artist[1], long_top_artist[-1]['url']))
+    flash(('mid', 'Average artist popularity: ' + str(round(long_artist_pop, 2))))
+
+
+    # flash('Medium term:')
+    # flash(medium_top_song)
+    # flash(medium_top_artist)
+
+    # flash('Long Term:')
+    # flash(long_top_song)
+    # flash(long_top_artist)
 
 
     

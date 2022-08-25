@@ -3,6 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <title>SpotifyU</title>
+        <style>
+            img {
+                float: left;
+                height: auto;
+                border-radius: 10px;
+                margin-right: 10px;
+            }
+        </style>
         <link rel="stylesheet" href="{{url_for('static', filename='css/mediumTerm.css')}}">
     </head>
     <body>
@@ -20,23 +28,60 @@
                     {% else %}
                         {% set ns.iterPrint = True %}
                     {% endif %}
+                {% elif message == '' %}
+                    <a> </a>
                 {% elif 'i.scdn.co' in message %}
-                    
-                    <img src = {{message}} width="50" height="50">
+                    <div>
+                        <img src = {{message}} width = 100 height = 100>
+                    </div>
 
                 {% else %}
-                    {% set l = message %}
-                    {% for part in l %}
-                        <a> {{part}}  </a>
-                    {% endfor %}
                     
+                    {% set l = message %}
+                    {% if l|length == 2 %}
+                        <a> 
+                            {{l[0]}}. {{l[1]}}
+                        </a>
+                        <br>
+                    {% else %}
+
+                        <a>
+                            {{l[0]}}. {{l[1]}} - {{l[2]}}
+                        </a>
+                        <br>
+                        <a> 
+                            Popularity: {{l[3]}} | Dancability: {{l[4]}} 
+                            <br>
+                            Energy: {{l[5]}} | Valence (positiveness): {{l[6]}}
+                        </a>
+                        <br>
+                        <br>
+                        <br>
+                    {% endif %}
                 {% endif %}
+
+                
             {% else %}
                 {% set ns.iterPrint = True %}
-                <a\> {{message}} </a>
+                
+                {% if 'metrics' in message %}
+                    <p3>
+                        {{message}} 
+                    </p3>
+                    <br>
+                    <br>
+                    
+                {% else %}
+                    <p2> {{message}} </p2>
+
+                    <br>
+                    <br>
+                {% endif %}
+                
+
                 
             {% endif %}
-        <br>
+        
         {% endfor %}
         <form action="/page3">
             <input type="submit" value="Back"/>

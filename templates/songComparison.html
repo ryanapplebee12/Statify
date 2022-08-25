@@ -3,10 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <title>SpotifyU</title>
+        <style>
+            img {
+                float: left;
+                height: auto;
+                border-radius: 10px;
+                margin-right: 10px;
+            }
+        </style>
         <link rel="stylesheet" href="{{url_for('static', filename='css/songComparison.css')}}">
     </head>
     <body>
-        {% set ns = namespace(iterPrint=false) %} 
+        <!-- {% set ns = namespace(iterPrint=false) %} 
         {% for message in get_flashed_messages()%}
             {% if ns.iterPrint %}
                 {% if message == 'switch' %}
@@ -32,11 +40,55 @@
                 
             {% endif %}
         <br>
+        {% endfor %} -->
+        {% set ns = namespace(iterPrint=false) %} 
+        {% for message in get_flashed_messages()%}
+            {% if ns.iterPrint %}
+                {% if message == 'switch' %}
+                    {% if ns.iterPrint %}
+                        {% set ns.iterPrint = False %}
+                    {% else %}
+                        {% set ns.iterPrint = True %}
+                    {% endif %}
+                {% elif message == '' %}
+                    <a> </a>
+                {% elif 'i.scdn.co' in message %}
+                    <div>
+                        <img src = {{message}} width = 100 height = 100>
+                    </div>
+
+                {% else %}
+                    
+                    {% set l = message %}
+                    <br>
+                    <a>
+                        {{l[0]}} - {{l[1]}}
+                    </a>
+                    <br>
+                    <br>
+                    <br>
+                    
+                    
+                    
+                {% endif %}
+
+                
+            {% else %}
+                {% set ns.iterPrint = True %}
+                
+                
+                <p1> {{message}} </p1>
+
+                <br>
+                <br>
+
+                
+            {% endif %}
+        
         {% endfor %}
         <br>
         <form action="/page5">
             <input type="submit" value="Back"/>
         </form>
-
     </body>
 </html>
