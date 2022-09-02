@@ -5,21 +5,28 @@
         <title>SpotifyU</title>
         <style> 
         img {
-            border-radius: 20px;
+            border-radius: 25px;
             margin: 50px;
         }
             </style>
         <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
     </head>
     <body>
-    <img src = https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png width="300" height="300">
+        <br>
+        <br>
+        <br>
+        <br>
+    <p3> Welcome to </p3>
     <br>
-    <p1> SpotifyU </p1>
+    <br>
+    <p1> Anytime Wrapped </p1>
+    <br>
+    <br>
     <br>
     <p2> Find out what you've been listening to...</p2>
     <br>
     {% for message in get_flashed_messages()%}
-        <a href={{message}}> <img src =https://i.ibb.co/jy2xJN6/spotify-login.png width = 500px height = 90px border-radius = 10px /> </a>
+        <a href={{message}}> <img src =https://i.ibb.co/k50NqdS/updatedlogin.jpg width = 500px height = 90px border-radius = 10px /> </a>
     {% endfor %}
     
     </body>
